@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Transportadora_Antonio_Backend.Data;
 
@@ -11,9 +12,11 @@ using Transportadora_Antonio_Backend.Data;
 namespace Transportadora_Antonio_Backend.Migrations
 {
     [DbContext(typeof(TransportadoraAntonioContext))]
-    partial class TransportadoraAntonioContextModelSnapshot : ModelSnapshot
+    [Migration("20240128030911_UpdateNome")]
+    partial class UpdateNome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

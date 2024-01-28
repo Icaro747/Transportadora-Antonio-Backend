@@ -1,8 +1,6 @@
-﻿using Transportadora_Antonio_Backend.Enities.MainClass;
-
-namespace Transportadora_Antonio_Backend.Enities
+﻿namespace Transportadora_Antonio_Backend.DTOs.EventoVeiculo
 {
-    public class EventoVeiculo : Entity
+    public class CriarEventoVeiculoDto
     {
         public DateTime Data { get; set; }
         public string? Descricao { get; set; }
@@ -10,9 +8,6 @@ namespace Transportadora_Antonio_Backend.Enities
         public bool IsDespesa { get; set; }
 
         public Guid VeiculoId { get; set; }
-        public virtual Veiculo Veiculo { get; set; }
-
         public Guid CategoriaId { get; set; }
-        public virtual Categoria Categoria { get; set; }
     }
 }

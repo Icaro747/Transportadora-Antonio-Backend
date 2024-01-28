@@ -42,8 +42,8 @@ namespace Transportadora_Antonio_Backend.Controllers
 
         [HttpPut]
         [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 404)]
         public IActionResult AtulizarFuncionario([FromBody] AtulizarFuncionarioDto atulizarFuncionario)
         {
             try
@@ -82,6 +82,28 @@ namespace Transportadora_Antonio_Backend.Controllers
             catch (Exception ex)
             {
                 return BadRequest($@"Erro ao buscar funcionário: {ex.Message}");
+            }
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 404)]
+        public IActionResult RemoverFuncionario([FromQuery] Guid id)
+        {
+            try
+            {
+                var esteFuncionario = _context.Funcionarios.Find(id);
+                if (esteFuncionario == null) return NotFound("Funcionário não encontrado");
+
+                _context.Funcionarios.Remove(esteFuncionario);
+                _context.SaveChanges();
+
+                return Ok("Funcionário Removedo");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($@"Erro ao remove funcionário: {ex.Message}");
             }
         }
     }

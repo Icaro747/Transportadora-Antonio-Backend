@@ -12,6 +12,8 @@ builder.Services.AddDbContext<TransportadoraAntonioContext>(options => options.U
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 // Add services to the container.
 
 builder.Services.AddControllers();

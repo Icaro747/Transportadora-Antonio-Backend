@@ -10,14 +10,15 @@ namespace Transportadora_Antonio_Backend.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedNever();
-            builder.Property(x => x.Data).IsRequired(false);
-            builder.Property(x => x.Descricao).IsRequired();
+            builder.Property(x => x.Data).IsRequired();
+            builder.Property(x => x.Descricao).IsRequired(false);
             builder.Property(x => x.Valor).HasColumnType("decimal(18, 2)");
             builder.Property(x => x.IsDespesa).IsRequired();
             builder.Property(x => x.CriadoEm).IsRequired();
             builder.Property(x => x.ModificadoEm);
 
             builder.HasOne(x => x.Veiculo).WithMany(x => x.EventosVeiculo).HasForeignKey(x => x.VeiculoId);
+            builder.HasOne(x => x.Categoria).WithMany(x => x.EventoVeiculos).HasForeignKey(x => x.CategoriaId);
         }
     }
 }

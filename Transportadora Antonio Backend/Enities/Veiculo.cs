@@ -10,5 +10,9 @@ namespace Transportadora_Antonio_Backend.Enities
 
         public ICollection<RelacaoFuncionárioVeiculo> RelacaoFuncionárioVeiculo { get; set; }
         public ICollection<EventoVeiculo> EventosVeiculo { get; set; }
+
+        public Veiculo() {
+            RelacaoFuncionárioVeiculo = new List<RelacaoFuncionárioVeiculo>();
+        }
     }
 }

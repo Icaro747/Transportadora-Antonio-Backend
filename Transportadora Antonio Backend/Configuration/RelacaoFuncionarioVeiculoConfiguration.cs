@@ -4,10 +4,12 @@ using Transportadora_Antonio_Backend.Enities;
 
 namespace Transportadora_Antonio_Backend.Configuration
 {
-    public class RelacaoFuncionárioVeiculoConfiguration : IEntityTypeConfiguration<RelacaoFuncionárioVeiculo>
+    public class RelacaoFuncionarioVeiculoConfiguration : IEntityTypeConfiguration<RelacaoFuncionárioVeiculo>
     {
         public void Configure(EntityTypeBuilder<RelacaoFuncionárioVeiculo> builder)
         {
+            builder.ToTable("RelacaoFuncionarioVeiculo");
+
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedNever();
             builder.Property(x => x.CriadoEm).IsRequired();

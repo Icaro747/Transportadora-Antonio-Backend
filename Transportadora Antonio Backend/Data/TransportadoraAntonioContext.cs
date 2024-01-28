@@ -29,8 +29,9 @@ namespace Transportadora_Antonio_Backend.Data
 
             modelBuilder.ApplyConfiguration(new VeiculoConfiguration());
             modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
-            modelBuilder.ApplyConfiguration(new RelacaoFuncionárioVeiculoConfiguration());
+            modelBuilder.ApplyConfiguration(new RelacaoFuncionarioVeiculoConfiguration());
             modelBuilder.ApplyConfiguration(new EventoVeiculoConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
         }
 
         // Conjuntos de entidades DbSet
@@ -39,5 +40,6 @@ namespace Transportadora_Antonio_Backend.Data
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<RelacaoFuncionárioVeiculo> RaEventosFuncionarios { get; set; }
         public DbSet<EventoVeiculo> EventoVeiculos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }
